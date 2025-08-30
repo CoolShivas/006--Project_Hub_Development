@@ -1,6 +1,7 @@
 import React from "react";
 import { Boxes } from "@/components/ui/background-boxes";
 import SearchForm from "@/components/SearchForm";
+import { ThreeDCardDemo } from "../../components/ThreeDCard";
 
 const page = () => {
   return (
@@ -40,7 +41,7 @@ const page = () => {
               description: "It is the best project.",
             },
           ].map((items, index) => {
-            return <div>{items.title}</div>;
+            return <ThreeDCardDemo />;
           })}
         </ul>
       </section>
