@@ -1,3 +1,4 @@
+import { ThreeDCardDemo } from "@/components/ThreeDCard";
 import { EvervaultCard, Icon } from "@/components/ui/evervault-card";
 import React from "react";
 
@@ -25,6 +26,36 @@ const page = ({ params }: { params: { id: string } }) => {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati,
             autem?
           </p>
+        </div>
+
+        <div className="flex flex-1 flex-col gap-5 lg:mt-5">
+          <p className="text-30-bold">List of all projects</p>
+          <ul className="mt-5 card_grid grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-1 justify-center">
+            {[
+              {
+                id: 123,
+                title: "A new project",
+                description: "It is the best project.",
+              },
+              {
+                id: 1234,
+                title: "A new project",
+                description: "It is the best project.",
+              },
+              {
+                id: 12345,
+                title: "A new project",
+                description: "It is the best project.",
+              },
+              {
+                id: 123456,
+                title: "A new project",
+                description: "It is the best project.",
+              },
+            ].map((items, index) => {
+              return <ThreeDCardDemo key={items.id} />;
+            })}
+          </ul>
         </div>
       </section>
     </>
