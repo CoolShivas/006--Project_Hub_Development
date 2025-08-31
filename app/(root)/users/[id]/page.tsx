@@ -12,7 +12,11 @@ const page = ({ params }: { params: { id: string } }) => {
           <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
           <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
 
-          <EvervaultCard text="hover" />
+          <EvervaultCard
+            text="hover"
+            // imageURL="https://avatars.githubusercontent.com/u/75844991?v=4"
+            imageURL="https://vedicfeed.com/wp-content/uploads/2019/12/Lord-Shiva-Mahadeva.jpg"
+          />
 
           <h2 className="dark:text-white text-black mt-4 text-lg font-bold text-center">
             Name and Last-Name
