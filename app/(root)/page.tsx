@@ -18,7 +18,7 @@ const page = () => {
       </div>
       <section className="section_container">
         <p className="text-30-semibold">Trending Projects</p>
-        <ul className="mt-7 card_grid grid grid-cols-1 sm:grid-cols-1 gap-1 justify-center">
+        <ul className="mt-5 card_grid grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-1 justify-center">
           {[
             {
               id: 123,
