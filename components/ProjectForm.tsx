@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "./ui/textarea";
+import MDEditor from "@uiw/react-md-editor";
 
 const ProjectForm = () => {
   return (
@@ -51,6 +53,19 @@ const ProjectForm = () => {
           className="project-form_input"
           required
           placeholder="Project Thumbnail Url"
+        />
+      </div>
+      <div data-color-mode="light">
+        <label htmlFor="details" className="project-form_label">
+          Details
+        </label>
+        <MDEditor
+          id="details"
+          preview="edit"
+          height={300}
+          style={{ borderRadius: 20, overflow: "hidden" }}
+          textareaProps={{ placeholder: "Describe your project in detail." }}
+          previewOptions={{ disallowedElements: ["style"] }}
         />
       </div>
     </form>
