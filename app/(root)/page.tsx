@@ -10,9 +10,9 @@ const page = () => {
         <div className="absolute inset-0 w-full h-full  z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
 
         <Boxes />
-        <h1 className="heading relative">Tailwind is Awesome</h1>
+        <h1 className="heading relative">Welcome to Innovation World</h1>
         <p className="sub-heading !max-w-3xl relative">
-          Framer motion is the best animation library ngl
+          where technology meets with your idea
         </p>
         <SearchForm></SearchForm>
       </div>
