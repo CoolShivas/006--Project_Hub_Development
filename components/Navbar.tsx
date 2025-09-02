@@ -25,7 +25,11 @@ const Navbar = async () => {
               </Link>
 
               <Link href="/">
-                <span className="text-6 font-sans max-sm:hidden">Username</span>
+                <span className="text-6 font-sans max-sm:hidden">
+                  {/* Username */}
+                  {/* Instead of username getting the LogIn/SignUp user actual name from GitHub account on navbar. */}
+                  {session.user?.name}
+                </span>
               </Link>
             </>
           ) : (
