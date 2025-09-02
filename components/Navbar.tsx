@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { auth } from "@/auth";
+import { auth, signIn, signOut } from "@/auth";
 
 const Navbar = async () => {
   const session = await auth();
@@ -29,7 +29,19 @@ const Navbar = async () => {
               </Link>
             </>
           ) : (
-            <>{/* Else first SignUp to move instead */}</>
+            <>
+              {/* Else first SignUp to move instead */}
+              <form
+                action={async () => {
+                  "use server";
+                  await signIn("github");
+                }}
+              >
+                <button type="submit" className="text-6 font-sans">
+                  Login
+                </button>
+              </form>
+            </>
           )}
         </div>
       </nav>
