@@ -20,9 +20,22 @@ const Navbar = async () => {
                 <span className="text-6 font-sans max-sm:hidden">Create</span>
               </Link>
 
-              <Link href="/">
-                <span className="text-6 font-sans max-sm:hidden">Logout</span>
-              </Link>
+              {/* <Link href="/">
+                <span className="text-6 font-sans max-sm:hidden">
+                  Logout
+                </span>
+              </Link> */}
+
+              <form
+                action={async () => {
+                  "use server";
+                  await signOut({ redirectTo: "/" });
+                }}
+              >
+                <button type="submit" className="text-6 font-sans">
+                  LogOut
+                </button>
+              </form>
 
               <Link href="/">
                 <span className="text-6 font-sans max-sm:hidden">
