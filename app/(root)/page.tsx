@@ -33,7 +33,9 @@ export default async function Home({
         <SearchForm query={query}></SearchForm>
       </div>
       <section className="section_container">
-        <p className="text-30-semibold">Trending Projects</p>
+        <p className="text-30-semibold">
+          {query ? `Search for the "${query}"` : `Trending Projects`}
+        </p>
         <ul className="mt-5 card_grid grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-1 justify-center">
           {/* {[
             {
@@ -61,10 +63,10 @@ export default async function Home({
           })} */}
           {posts?.length > 0 ? (
             posts.map((post: ProjectTypeCard, index: number) => {
-              return <ThreeDCardDemo key={post._id} />;
+              return <ThreeDCardDemo key={post._id} post={post} />;
             })
           ) : (
-            <p className="no-results">No Proojects Found</p>
+            <p className="no-results">No Projects Found</p>
           )}
         </ul>
       </section>
