@@ -5,6 +5,9 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import { PROJECT_BY_ID_QUERY } from "@/sanity/lib/queries";
+import markdownit from "markdown-it";
+
+const md = markdownit();
 
 const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
@@ -17,6 +20,9 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   if (!post) {
     return notFound();
   }
+
+  const parsedContent = md.render(post?.details || "");
+  console.log(parsedContent);
   return (
     <>
       <div className="h-96 relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-lg">
@@ -48,7 +54,8 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
             <Link href="/" className="flex gap-2 items-center mb-3">
               <Image
                 // src="https://vedicfeed.com/wp-content/uploads/2019/12/Lord-Shiva-Mahadeva.jpg"
-                src={post.author.image || "https://placehold.co/220"}
+                // src={post?.author.image || "https://placehold.co/220"}
+                src={post.image || "https://placehold.co/220"}
                 alt="image not found"
                 width={64}
                 height={64}
@@ -71,8 +78,18 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
               {post.category}
             </p>
           </div>
-          <h3 className="text-30-bold">PROJECT DETAILS</h3>
-          <p className="no-result">No, Details Provided yet.</p>
+          {/* <h3 className="text-30-bold">
+            PROJECT DETAILS
+          </h3> */}
+          {/* <p className="no-result">No, Details Provided yet.</p> */}
+          {parsedContent ? (
+            <article
+              className="prose max-w-4xl font-work-sans brek-all"
+              dangerouslySetInnerHTML={{ __html: parsedContent }}
+            ></article>
+          ) : (
+            <p className="no-result">No, Details Provided yet.</p>
+          )}
         </div>
       </section>
     </>
