@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import { PROJECT_BY_ID_QUERY } from "@/sanity/lib/queries";
 import markdownit from "markdown-it";
+import { formateDate } from "@/lib/utils";
 
 const md = markdownit();
 
@@ -31,7 +32,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
         <Boxes />
         <p className="tag relative">
           {/* 31/August/2025 */}
-          {post._createdAt}
+          {formateDate(post._createdAt)}
         </p>
         <h1 className="heading relative">
           {/* Best Projects */}
